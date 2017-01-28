@@ -61,4 +61,14 @@
         android:layout_alignParentEnd="true"
         android:layout_alignStart="@+id/code_edit_text" />
 
+    <TextView
+        android:text="Create a new Juqe Queue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="36dp"
+        android:id="@+id/createVenue"
+        android:textColor="@color/linkcolor" />
+
 </RelativeLayout>
