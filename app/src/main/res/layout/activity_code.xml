@@ -45,10 +45,20 @@
         android:layout_marginRight="10dp"
         android:paddingStart="8dp"
         android:textColor="@color/black"
-        android:id="@+id/username_login_edit_text"
+        android:id="@+id/code_edit_text"
         android:layout_below="@+id/textView2"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:background="@color/fieldcolor" />
+
+    <Button
+        android:text="Enter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/code_edit_text"
+        android:layout_marginTop="22dp"
+        android:id="@+id/codeButton"
+        android:layout_alignParentEnd="true"
+        android:layout_alignStart="@+id/code_edit_text" />
 
 </RelativeLayout>

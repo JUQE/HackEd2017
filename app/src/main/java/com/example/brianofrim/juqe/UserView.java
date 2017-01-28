@@ -14,11 +14,19 @@ public class UserView extends Activity {
     private ArrayList<Song> songArray = new ArrayList<>();
     private SongListAdapter songAdapter;
     private ListView songList;
+    private String code;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_view);
+
+        Intent intent = getIntent();
+        Bundle extras = intent.getExtras();
+        if (extras != null) {
+            code = extras.getString("code");
+        }
+
         songList = (ListView) findViewById(R.id.allSongs);
         songList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
