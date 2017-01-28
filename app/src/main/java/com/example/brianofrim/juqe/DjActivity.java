@@ -7,8 +7,14 @@ import android.app.Activity;
         import android.os.Bundle;
 import android.support.v7.util.SortedList;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.Spinner;
 
-        import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.DatabaseReference;
         import com.google.firebase.database.FirebaseDatabase;
         import com.spotify.sdk.android.authentication.AuthenticationClient;
         import com.spotify.sdk.android.authentication.AuthenticationRequest;
@@ -46,6 +52,13 @@ public class DjActivity extends Activity implements
 
     private Player mPlayer;
 
+    //UI elements
+    private ListView seachResultsList;
+    private Spinner searchTypeSpinner;
+    private Button searchButton;
+    private EditText searchText;
+
+
     SpotifyApi api;
 
     @Override
@@ -65,11 +78,19 @@ public class DjActivity extends Activity implements
 //        DatabaseReference myRef = database.getReference("message");
 //
 //        myRef.setValue("Hello, World!");
-//        api =  new SpotifyApi();
+      api =  new SpotifyApi();
 
+        seachResultsList = (ListView) findViewById(R.id.searchResultsList);
+        searchTypeSpinner = (Spinner) findViewById(R.id.searchTypeSpinner);
+        searchButton = (Button) findViewById(R.id.searchButton);
+        searchText = (EditText) findViewById(R.id.searchTextBox);
 
-
-
+        searchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                searchSongs();
+            }
+        });
 
     }
 
@@ -157,16 +178,15 @@ public class DjActivity extends Activity implements
         Log.d("MainActivity", "Received connection message: " + message);
     }
 
-    public void searchSongs(String searchString){
+    public void searchSongs(){
         SpotifyService spotify = api.getService();
 
-        spotify.searchTracks(searchString, new Callback<TracksPager>() {
+        spotify.searchTracks(searchText.getText().toString(), new Callback<TracksPager>() {
             @Override
             public void success(TracksPager tracksPager, Response response) {
                 Log.d("Album success", tracksPager.toString());
 
             }
-
             @Override
             public void failure(RetrofitError error) {
                 Log.d("Album failure", error.toString());

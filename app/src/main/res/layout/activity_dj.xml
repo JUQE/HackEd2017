@@ -25,7 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
-        android:id="@+id/spinner"
+        android:id="@+id/searchTypeSpinner"
         android:entries="@array/search_type_array"
         android:layout_below="@+id/searchTextBox"
         android:layout_alignParentStart="true"
@@ -34,9 +34,10 @@
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/spinner"
+        android:layout_below="@+id/searchTypeSpinner"
         android:layout_marginTop="40dp"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:id="@+id/searchResultsList"/>
 
     <Button
         android:text="Button"
@@ -44,7 +45,7 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/searchTextBox"
         android:layout_alignParentEnd="true"
-        android:id="@+id/button2" />
+        android:id="@+id/searchButton" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -55,6 +56,6 @@
         android:id="@+id/searchTextBox"
         android:layout_marginTop="17dp"
         android:layout_below="@+id/BoothTextView"
-        android:layout_alignStart="@+id/spinner" />
+        android:layout_alignStart="@+id/searchTypeSpinner" />
 
 </RelativeLayout>
