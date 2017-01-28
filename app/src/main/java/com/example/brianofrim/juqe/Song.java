@@ -51,4 +51,8 @@ public class Song {
     public String getName() {
         return name;
     }
+
+    public void incrementVotes() {
+        votes = votes + 1;
+    }
 }
