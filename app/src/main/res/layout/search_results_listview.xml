@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@id/songArtist"
         android:paddingLeft="8dp"
         android:textSize="18sp"
         android:textStyle="bold" />
@@ -30,6 +31,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
+        android:layout_toLeftOf="@id/songName"
         android:layout_marginRight="10dp"
         android:text="Complete" />
 
