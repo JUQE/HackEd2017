@@ -27,6 +27,9 @@ import com.google.firebase.database.DatabaseReference;
         import com.spotify.sdk.android.player.Spotify;
         import com.spotify.sdk.android.player.SpotifyPlayer;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import kaaes.spotify.webapi.android.SpotifyApi;
 import kaaes.spotify.webapi.android.SpotifyService;
 import kaaes.spotify.webapi.android.models.AlbumsPager;
@@ -58,6 +61,9 @@ public class DjActivity extends Activity implements
     private Button searchButton;
     private EditText searchText;
 
+    private ResultsListAdapter songAdapter;
+
+    private ArrayList<Song> songSearchResultsArraylist;
 
     SpotifyApi api;
 
@@ -89,9 +95,20 @@ public class DjActivity extends Activity implements
             @Override
             public void onClick(View v) {
                 searchSongs();
+
             }
         });
 
+        songSearchResultsArraylist = new ArrayList<Song>();
+
+    }
+
+    @Override
+    protected void onStart() {
+        // TODO Auto-generated method stub
+        super.onStart();
+        songAdapter = new ResultsListAdapter(this, songSearchResultsArraylist);
+        seachResultsList.setAdapter(songAdapter);
     }
 
     @Override
@@ -171,6 +188,7 @@ public class DjActivity extends Activity implements
     @Override
     public void onTemporaryError() {
         Log.d("MainActivity", "Temporary error occurred");
+
     }
 
     @Override
@@ -185,6 +203,12 @@ public class DjActivity extends Activity implements
             @Override
             public void success(TracksPager tracksPager, Response response) {
                 Log.d("Album success", tracksPager.toString());
+                List<Track> tracks = tracksPager.tracks.items;
+                songAdapter.clear();
+                for(Track t: tracks) {
+                    Song s = new Song(t.name, t.artists.get(0).name, t.id, 0);
+                    songAdapter.add(s);
+                }
 
             }
             @Override
@@ -192,7 +216,6 @@ public class DjActivity extends Activity implements
                 Log.d("Album failure", error.toString());
             }
         });
-
 //        spotify.searchAlbums("2dIGnmEIy1WZIcZCFSj6i8", new SortedList.Callback<AlbumsPager>() {
 //            @Override
 //            public void success(AlbumsPager albumpager, Response response) {
