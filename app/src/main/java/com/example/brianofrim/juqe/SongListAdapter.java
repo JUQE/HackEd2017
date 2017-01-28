@@ -31,7 +31,8 @@ public class SongListAdapter extends ArrayAdapter<Song> {
         if(convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.song_list_item, parent, false);
         }
-        TextView habitName = (TextView) convertView.findViewById(R.id.songItem);
+        TextView songName = (TextView) convertView.findViewById(R.id.songName);
+        TextView songArtist = (TextView) convertView.findViewById(R.id.songArtist);
         Button upvoteButton = (Button) convertView.findViewById(R.id.upvote_button);
         upvoteButton.setOnClickListener(new View.OnClickListener() {
 
@@ -48,8 +49,8 @@ public class SongListAdapter extends ArrayAdapter<Song> {
         Song song = getItem(position);
         //Set color for completion
 
-        habitName.setText(song.getName());
-
+        songName.setText(song.getName());
+        songArtist.setText(song.getArtist());
         return convertView;
 
     }
