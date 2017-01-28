@@ -67,7 +67,7 @@ public class DjActivity extends Activity implements
 //        myRef.setValue("Hello, World!");
 //        api =  new SpotifyApi();
 
-        
+
 
 
 

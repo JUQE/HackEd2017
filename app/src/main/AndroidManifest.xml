@@ -16,10 +16,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".DjActivity" />
-        <activity
-            android:name=".Main2Activity"
-            android:label="@string/title_activity_main2"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".CodeActivity" />
     </application>
 
 </manifest>
