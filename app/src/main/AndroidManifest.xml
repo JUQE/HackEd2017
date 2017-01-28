@@ -11,11 +11,11 @@
         <activity android:name=".CodeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".UserView" />
         <activity android:name=".MainActivity" />
+        <activity android:name=".UserView" />
+        <activity android:name=".DjActivity" />
     </application>
 </manifest>
