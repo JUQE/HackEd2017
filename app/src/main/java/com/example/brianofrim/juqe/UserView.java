@@ -41,6 +41,8 @@ public class UserView extends Activity {
     protected void onStart() {
         // TODO Auto-generated method stub
         super.onStart();
+        Song newSong = new Song("Mr. Brightside", "The Killers", "aadghghj41203498", 0);
+        songArray.add(newSong);
         songAdapter = new SongListAdapter(this, songArray);
         songList.setAdapter(songAdapter);
     }
