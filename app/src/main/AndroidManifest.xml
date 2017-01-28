@@ -16,6 +16,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".DjActivity" />
+        <activity android:name=".UserView" />
         <activity android:name=".CodeActivity" />
     </application>
 
