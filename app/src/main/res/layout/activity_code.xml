@@ -11,11 +11,10 @@
     tools:context="com.example.brianofrim.juqe.CodeActivity">
 
     <TextView
-        android:text="TextView"
+        android:text="Juqe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView"
-        tools:text="Juqe"
         android:textColor="@color/black"
         android:textSize="36sp"
         android:layout_alignParentTop="true"

@@ -9,6 +9,8 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 
 public class UserView extends Activity {
     private ArrayList<Song> songArray = new ArrayList<>();
@@ -34,6 +36,7 @@ public class UserView extends Activity {
             }
         });
 
+
     }
 
 
@@ -41,8 +44,15 @@ public class UserView extends Activity {
     protected void onStart() {
         // TODO Auto-generated method stub
         super.onStart();
-        Song newSong = new Song("Mr. Brightside", "The Killers", "aadghghj41203498", 0);
+        Song newSong = new Song("11", "The Killers", "aadghghj41203498", 11);
         songArray.add(newSong);
+        newSong = new Song("100", "The Killers", "aadghghj41203498", 100);
+        songArray.add(newSong);
+        newSong = new Song("0", "The Killers", "aadghghj41203498", 0);
+        songArray.add(newSong);
+        newSong = new Song("10", "The Killers", "aadghghj41203498", 10);
+        songArray.add(newSong);
+        Collections.sort(songArray);
         songAdapter = new SongListAdapter(this, songArray);
         songList.setAdapter(songAdapter);
     }

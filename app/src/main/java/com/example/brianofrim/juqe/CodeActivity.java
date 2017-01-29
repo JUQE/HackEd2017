@@ -7,9 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class CodeActivity extends Activity {
     private EditText venueCode;
+    private TextView venueText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +27,15 @@ public class CodeActivity extends Activity {
                 Intent intent;
                 intent =  new Intent(CodeActivity.this, UserView.class);
                 intent.putExtra("code", codeText);
+                startActivity(intent);
+            }
+        });
+
+        venueText = (TextView) findViewById(R.id.createVenue);
+        venueText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CodeActivity.this, VenueSignupActivity.class);
                 startActivity(intent);
             }
         });
