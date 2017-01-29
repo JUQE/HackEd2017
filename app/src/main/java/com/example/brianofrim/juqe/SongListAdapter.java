@@ -29,7 +29,7 @@ public class SongListAdapter extends ArrayAdapter<Song> {
     }
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
-        if(convertView == null) {
+        if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.song_list_item, parent, false);
         }
         TextView songName = (TextView) convertView.findViewById(R.id.songName);

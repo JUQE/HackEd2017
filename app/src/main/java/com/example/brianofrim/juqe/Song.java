@@ -5,7 +5,7 @@ package com.example.brianofrim.juqe;
  */
 
 
-public class Song {
+public class Song implements Comparable<Song>{
     private String name;
     private String artist;
     private String URI;
@@ -54,5 +54,15 @@ public class Song {
 
     public void incrementVotes() {
         votes = votes + 1;
+    }
+
+    @Override
+    public int compareTo(Song song) {
+        return song.getVotes() - this.getVotes();
+    }
+
+    @Override
+    public String toString() {
+        return "Song = " + this.getName() + "Artist = " + this.getArtist();
     }
 }
