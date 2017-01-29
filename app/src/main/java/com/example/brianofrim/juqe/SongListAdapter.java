@@ -2,6 +2,8 @@ package com.example.brianofrim.juqe;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,7 +39,8 @@ public class SongListAdapter extends ArrayAdapter<Song> {
         TextView upvoteCount = (TextView) convertView.findViewById(R.id.upvoteCount);
 
         upvoteCount.setText(Integer.toString(songList.get(position).getVotes()));
-        ImageButton upvoteButton = (ImageButton) convertView.findViewById(R.id.upvote_button);
+        final ImageButton upvoteButton = (ImageButton) convertView.findViewById(R.id.upvote_button);
+        setButtonColor(upvoteButton, songList.get(position));
         upvoteButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -45,6 +48,7 @@ public class SongListAdapter extends ArrayAdapter<Song> {
                 // TODO Auto-generated method stub
                 //songList.get(position).incrementVotes();
                 UserController.upvoteSong(songList.get(position));
+                setButtonColor(upvoteButton, songList.get(position));
                 notifyDataSetChanged();
             }
             //RelativeLayout listItem = (RelativeLayout) v.getParent();
@@ -69,6 +73,14 @@ public class SongListAdapter extends ArrayAdapter<Song> {
             if(s.getURI().equals(song.getURI())) {
                 songList.remove(s);
             }
+        }
+    }
+
+    public void setButtonColor(ImageButton button, Song song) {
+        if(UserController.getKeyList().contains(song.getHash())) {
+            button.getBackground().setColorFilter(ContextCompat.getColor(context, R.color.buttonPressed), PorterDuff.Mode.MULTIPLY);
+        } else {
+            button.getBackground().setColorFilter(ContextCompat.getColor(context, R.color.tertiary_colour), PorterDuff.Mode.MULTIPLY);
         }
     }
 }

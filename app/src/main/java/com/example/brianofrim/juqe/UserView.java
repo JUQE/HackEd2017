@@ -71,7 +71,8 @@ public class UserView extends Activity {
                 Song song = dataSnapshot.getValue(Song.class);
                 for(Song s: songArray) {
                     if(s.getURI().equals(song.getURI())) {
-                        s = song;
+                        s.setVotes(song.getVotes());
+                        break;
                     }
                 }
                 Collections.sort(songArray);

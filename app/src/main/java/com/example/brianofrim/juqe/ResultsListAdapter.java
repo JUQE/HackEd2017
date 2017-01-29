@@ -11,6 +11,7 @@ package com.example.brianofrim.juqe;
         import android.view.ViewGroup;
         import android.widget.ArrayAdapter;
         import android.widget.Button;
+        import android.widget.ImageButton;
         import android.widget.TextView;
 
         import java.util.ArrayList;
@@ -59,5 +60,13 @@ public class ResultsListAdapter extends ArrayAdapter<Song> {
         songArtist.setText(song.getArtist());
         return convertView;
 
+    }
+
+    public void setButtonColor(ImageButton button, Song song) {
+        if(UserController.getKeyList().contains(song.getHash())) {
+            button.getBackground().setColorFilter(ContextCompat.getColor(context, R.color.buttonPressed), PorterDuff.Mode.MULTIPLY);
+        } else {
+            button.getBackground().setColorFilter(ContextCompat.getColor(context, R.color.tertiary_colour), PorterDuff.Mode.MULTIPLY);
+        }
     }
 }
