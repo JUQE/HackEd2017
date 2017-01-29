@@ -7,6 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
 
 public class VenueSignupActivity extends Activity {
     EditText venueNameEditText;
@@ -24,17 +29,41 @@ public class VenueSignupActivity extends Activity {
         venueCodeEditText = (EditText) findViewById(R.id.venueCode);
         venueNameEditText = (EditText) findViewById(R.id.venueName);
 
-        venueController = new VenueController();
 
         createButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 setResult(RESULT_OK);
                 venueCode = venueCodeEditText.getText().toString();
                 venueName = venueNameEditText.getText().toString();
-                venueController.createVenue(venueCode, venueName);
-                Intent intent = new Intent (VenueSignupActivity.this, DjActivity.class);
-                startActivity(intent);
+
+
+                VenueController.getDbRef().child("venues").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot snapshot) {
+                        if(!snapshot.hasChild(venueCode)){
+                            VenueController.createVenue(venueCode, venueName);
+                            Intent intent = new Intent (VenueSignupActivity.this, DjActivity.class);
+                            startActivity(intent);
+                        }else{
+                            displayErrorMessage("Venue Code already in use");
+
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        // Getting Post failed, log a message
+                        displayErrorMessage("Connection error try again");
+                    }
+                });
+
+
             }
         });
+    }
+
+    public void displayErrorMessage(String errorMessage){
+        Toast toast = Toast.makeText(this , errorMessage,Toast.LENGTH_SHORT);
+        toast.show();
     }
 }
