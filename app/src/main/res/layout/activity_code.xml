@@ -66,10 +66,20 @@
         android:text="Create a new Juqe Queue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="36dp"
         android:id="@+id/createVenue"
-        android:textColor="@color/linkcolor" />
+        android:textColor="@color/linkcolor"
+        android:layout_above="@+id/reconnectText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="48dp" />
+
+    <TextView
+        android:text="Reconnect to your last Juqe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="36dp"
+        android:id="@+id/reconnectText"
+        android:textColor="@color/linkcolor"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

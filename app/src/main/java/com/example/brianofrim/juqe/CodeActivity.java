@@ -17,6 +17,7 @@ import com.google.firebase.database.ValueEventListener;
 public class CodeActivity extends Activity {
     private EditText venueCode;
     private TextView venueText;
+    private TextView reconnectText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +32,20 @@ public class CodeActivity extends Activity {
             public void onClick(View v) {
                 Intent intent = new Intent(CodeActivity.this, VenueSignupActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        reconnectText = (TextView) findViewById(R.id.reconnectText);
+        reconnectText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(VenueController.getCurrVenue() != null) {
+                    Intent intent = new Intent(CodeActivity.this, DjActivity.class);
+                    startActivity(intent);
+                } else {
+                    Toast toast = Toast.makeText(CodeActivity.this,"No current Juqe", Toast.LENGTH_SHORT);
+                    toast.show();
+                }
             }
         });
 
