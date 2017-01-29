@@ -9,9 +9,12 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class VenueController {
 
-    DatabaseReference mDatabase;
+    private static DatabaseReference mDatabase;
 
-    private DatabaseReference getDbRef(){
+    private static Venue currVenue;
+    private static SongList songList;
+
+    private static DatabaseReference getDbRef(){
         if(mDatabase == null){
             mDatabase = FirebaseDatabase.getInstance().getReference();
         }
@@ -19,14 +22,31 @@ public class VenueController {
     }
 
 
-    public boolean venueCodeExists(String venueCode){
+    public static boolean venueCodeExists(String venueCode){
         return true;
     }
 
-    public void createVenue(String venueCode,String venueName){
+    public static void createVenue(String venueCode,String venueName){
         Venue newVenue = new Venue(venueName, venueCode);
+        SongList newSongList = new SongList(venueCode);
 
         getDbRef().child("venues").child(newVenue.getCode()).setValue(newVenue);
+        getDbRef().child("songLists").child(newVenue.getCode()).setValue(newVenue);
 
+        currVenue = newVenue;
+        songList = newSongList;
+
+    }
+
+    public static Venue getCurrVenue(){
+        return currVenue;
+    }
+
+    public static SongList getCurrSongList(){
+        return songList;
+    }
+
+    public static void addSong(Song s){
+        getDbRef().child("songLists").child(songList.getVenueName()).child("songPool").push().setValue(s);
     }
 }

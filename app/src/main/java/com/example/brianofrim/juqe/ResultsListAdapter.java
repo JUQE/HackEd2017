@@ -4,6 +4,7 @@ package com.example.brianofrim.juqe;
 
         import android.content.Context;
         import android.graphics.Color;
+        import android.support.v4.content.ContextCompat;
         import android.view.LayoutInflater;
         import android.view.View;
         import android.view.ViewGroup;
@@ -35,13 +36,15 @@ public class ResultsListAdapter extends ArrayAdapter<Song> {
         }
         TextView songName = (TextView) convertView.findViewById(R.id.songName);
         TextView songArtist = (TextView) convertView.findViewById(R.id.songArtist);
-        Button upvoteButton = (Button) convertView.findViewById(R.id.add_to_pool);
-        upvoteButton.setOnClickListener(new View.OnClickListener() {
+        final Button addToPoolButton = (Button) convertView.findViewById(R.id.add_to_pool);
+        addToPoolButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
-                songList.get(position).incrementVotes();
+                VenueController.addSong(songList.get(position));
+                addToPoolButton.setEnabled(false);
+                addToPoolButton.setBackgroundColor(ContextCompat.getColor(context, R.color.buttonPressed));
                 notifyDataSetChanged();
             }
             //RelativeLayout listItem = (RelativeLayout) v.getParent();

@@ -16,4 +16,5 @@
     <color name="colorAccent">#e2e1e1</color>
     <color name="fieldcolor">#FF666262</color>
     <color name="linkcolor">#158df1</color>
+    <color name="buttonPressed">#298b27</color>
 </resources>

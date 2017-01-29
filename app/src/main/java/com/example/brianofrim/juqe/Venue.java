@@ -8,7 +8,7 @@ import java.util.List;
  */
 
 public class Venue {
-    private List<Song> songList;
+    private String songListName;
     private String name;
     private String code;
     private Song nowPlaying;
@@ -16,7 +16,7 @@ public class Venue {
 
 
     public Venue (String name, String code) {
-        this.songList = new ArrayList<Song>();
+        this.songListName = code + "_sl";
         this.name = name;
         this.code = code;
 
@@ -25,17 +25,14 @@ public class Venue {
     public Venue () {
     }
 
-    public List<Song> getSongList() {
-        return songList;
+    public String getSongListName() {
+        return songListName;
     }
 
-    public void setSongList(List<Song> songList) {
-        this.songList = songList;
+    public void setSongListName(String songListName) {
+        this.songListName = songListName;
     }
 
-    public void setSongList(ArrayList<Song> songList) {
-        this.songList = songList;
-    }
 
     public String getName() {
         return name;

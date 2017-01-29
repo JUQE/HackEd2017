@@ -80,10 +80,6 @@ public class DjActivity extends Activity implements
 
         AuthenticationClient.openLoginActivity(this, REQUEST_CODE, request);
 
-//        FirebaseDatabase database = FirebaseDatabase.getInstance();
-//        DatabaseReference myRef = database.getReference("message");
-//
-//        myRef.setValue("Hello, World!");
       api =  new SpotifyApi();
 
         seachResultsList = (ListView) findViewById(R.id.searchResultsList);
@@ -100,6 +96,10 @@ public class DjActivity extends Activity implements
         });
 
         songSearchResultsArraylist = new ArrayList<Song>();
+
+        //test <code>
+        VenueController.createVenue("testVen2","Cool place");
+        //VenueController.addSong( new Song("some song", "lol", "sagrgeagerg", 0));
 
     }
 
@@ -172,7 +172,7 @@ public class DjActivity extends Activity implements
     public void onLoggedIn() {
         Log.d("MainActivity", "User logged in");
 
-        mPlayer.playUri(null, "spotify:track:2TpxZ7JUBn3uw46aR7qd6V", 0, 0);
+        //mPlayer.playUri(null, "spotify:track:2TpxZ7JUBn3uw46aR7qd6V", 0, 0);
     }
 
     @Override
