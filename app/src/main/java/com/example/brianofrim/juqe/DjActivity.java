@@ -111,7 +111,7 @@ public class DjActivity extends Activity implements
         songSearchResultsArraylist = new ArrayList<Song>();
 
         //test <code>
-        //VenueController.createVenue("testVen2","Cool place");
+        //VenueController.createVenue("testVen3","V Cool place");
         //VenueController.addSong( new Song("some song", "lol", "sagrgeagerg", 0));
 
     }

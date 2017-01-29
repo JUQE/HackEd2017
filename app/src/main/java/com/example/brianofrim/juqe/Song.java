@@ -9,6 +9,7 @@ public class Song implements Comparable<Song>{
     private String name;
     private String artist;
     private String URI;
+    private String hash;
     private int votes;
 
     public Song (String name, String artist, String URI, int votes) {
@@ -54,6 +55,14 @@ public class Song implements Comparable<Song>{
 
     public void incrementVotes() {
         votes = votes + 1;
+    }
+
+    public void setHash(String newHash){
+        hash = newHash;
+    }
+
+    public String getHash(){
+        return hash;
     }
 
     @Override

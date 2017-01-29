@@ -1,5 +1,6 @@
 package com.example.brianofrim.juqe;
 
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -47,6 +48,14 @@ public class VenueController {
     }
 
     public static void addSong(Song s){
-        getDbRef().child("songLists").child(songList.getVenueName()).child("songPool").push().setValue(s);
+        DatabaseReference dbr = getDbRef().child("songLists").child(songList.getVenueName()).child("songPool").push();
+        s.setHash(dbr.getKey());
+        dbr.setValue(s);
+        songList.addSong(s);
+    }
+
+    public static void removeSong(Song s){
+        getDbRef().child("songLists").child(songList.getVenueName()).child("songPool").child(s.getHash()).removeValue();
+        songList.removeSong(s);
     }
 }

@@ -27,6 +27,7 @@ public class SongList {
         return songPool;
     }
 
+
     public void setSongPool(List<Song> songPool) {
         this.songPool = songPool;
     }
@@ -39,5 +40,11 @@ public class SongList {
         this.venueCode = venueName;
     }
 
+    public void addSong(Song s){
+        songPool.add(s);
+    }
 
+    public void removeSong(Song s){
+        songPool.remove(s);
+    }
 }
