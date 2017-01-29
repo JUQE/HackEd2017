@@ -47,7 +47,7 @@ public class SongPoolAdapter extends ArrayAdapter<Song> {
                 // TODO Auto-generated method stub
                 VenueController.removeURI(songList.get(position).getURI());
                 VenueController.removeSong(songList.get(position));
-                removeFromPoolButton.setEnabled(false);
+                //removeFromPoolButton.setEnabled(false);
                 notifyDataSetChanged();
             }
             //RelativeLayout listItem = (RelativeLayout) v.getParent();

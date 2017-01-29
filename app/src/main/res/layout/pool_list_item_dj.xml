@@ -27,7 +27,6 @@
         android:layout_height="wrap_content"
         android:paddingLeft="8dp"
         android:textSize="18sp"
-        android:textStyle="bold"
         android:layout_alignParentRight="true"
         android:layout_toRightOf="@id/remove_from_pool"
         android:layout_below="@id/songName_dj_pool"/>rap
