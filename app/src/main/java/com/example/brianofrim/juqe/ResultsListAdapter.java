@@ -81,6 +81,7 @@ public class ResultsListAdapter extends ArrayAdapter<Song> {
             VenueController.addURI(song.getURI());
         } else {
             button.getBackground().setColorFilter(ContextCompat.getColor(context, R.color.tertiary_colour), PorterDuff.Mode.MULTIPLY);
+            button.setEnabled(true);
         }
     }
 }
