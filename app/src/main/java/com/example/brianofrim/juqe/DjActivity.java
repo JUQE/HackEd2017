@@ -216,7 +216,7 @@ public class DjActivity extends Activity implements
     public void onLoggedIn() {
         Log.d("MainActivity", "User logged in");
 
-        mPlayer.playUri(null, "spotify:track:2TpxZ7JUBn3uw46aR7qd6V", 0, 0);
+        mPlayer.playUri(null, "spotify:track:36lLAemjMocqp4XYr4Umgn", 0, 0);
 
     }
 
