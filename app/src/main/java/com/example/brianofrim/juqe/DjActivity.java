@@ -103,7 +103,7 @@ public class DjActivity extends Activity implements
         poolButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                gotToSongPool();
+                goToSongPool();
 
             }
         });
@@ -261,7 +261,7 @@ public class DjActivity extends Activity implements
 //            }
     }
 
-    public void gotToSongPool(){
+    public void goToSongPool(){
         Intent intent = new Intent(this, SongPoolActivity.class);
         startActivity(intent);
 

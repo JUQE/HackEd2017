@@ -4,6 +4,7 @@ package com.example.brianofrim.juqe;
 
         import android.content.Context;
         import android.graphics.Color;
+        import android.graphics.PorterDuff;
         import android.support.v4.content.ContextCompat;
         import android.view.LayoutInflater;
         import android.view.View;
@@ -44,7 +45,7 @@ public class ResultsListAdapter extends ArrayAdapter<Song> {
                 // TODO Auto-generated method stub
                 VenueController.addSong(songList.get(position));
                 addToPoolButton.setEnabled(false);
-                addToPoolButton.setBackgroundColor(ContextCompat.getColor(context, R.color.buttonPressed));
+                addToPoolButton.getBackground().setColorFilter(ContextCompat.getColor(context, R.color.buttonPressed), PorterDuff.Mode.MULTIPLY);
                 //notifyDataSetChanged();
             }
             //RelativeLayout listItem = (RelativeLayout) v.getParent();

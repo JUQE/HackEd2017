@@ -34,6 +34,9 @@ public class SongListAdapter extends ArrayAdapter<Song> {
         }
         TextView songName = (TextView) convertView.findViewById(R.id.songName);
         TextView songArtist = (TextView) convertView.findViewById(R.id.songArtist);
+        TextView upvoteCount = (TextView) convertView.findViewById(R.id.upvoteCount);
+
+        upvoteCount.setText(Integer.toString(songList.get(position).getVotes()));
         ImageButton upvoteButton = (ImageButton) convertView.findViewById(R.id.upvote_button);
         upvoteButton.setOnClickListener(new View.OnClickListener() {
 
