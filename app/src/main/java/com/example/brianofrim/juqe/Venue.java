@@ -13,13 +13,10 @@ public class Venue {
     private String code;
     private Song nowPlaying;
 
-
-
     public Venue (String name, String code) {
         this.songListName = code + "_sl";
         this.name = name;
         this.code = code;
-
     }
 
     public Venue () {

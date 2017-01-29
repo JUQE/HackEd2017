@@ -198,7 +198,7 @@ public class DjActivity extends Activity implements
 //        }
         if(playerEvent.name().equals("kSpPlaybackNotifyTrackDelivery")){
             Log.d("MainActivity", "Track Changed");
-
+            VenueController.nextTrack();
         }
     }
 

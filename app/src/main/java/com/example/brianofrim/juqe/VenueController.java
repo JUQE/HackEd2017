@@ -83,11 +83,22 @@ public class VenueController {
     public static void nextTrack() {
 
         //get all the current Tracks
-        getDbRef().child("songLists").child("lol2").child("songPool").addValueEventListener(new ValueEventListener() {
+        getDbRef().child("songLists").child(currVenue.getCode()).child("songPool").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                int highestVotes = -1;
+                Song song = null;
+                Song temp;
                 for (DataSnapshot postSnapshot: dataSnapshot.getChildren()) {
                     // TODO: handle the post
+                    temp = postSnapshot.getValue(Song.class);
+                    if(temp.getVotes() > highestVotes) {
+                        song = temp;
+                        highestVotes = song.getVotes();
+                    }
+                }
+                if(song != null) {
+                    updateNowPlaying(song);
                 }
             }
 
@@ -133,5 +144,14 @@ public class VenueController {
 
     public static void removeURI(String uri) {
         uriList.remove(uri);
+    }
+
+    public static void updateNowPlaying(Song song){
+        getDbRef().child("songLists").child(currVenue.getCode()).child("nowPlaying").setValue(song);
+        songList.setNowPlaying(song);
+        removeSong(song);
+        playerController.getPlayer().playUri(null, "spotify:track:"+song.getURI(),0,0);
+
+
     }
 }
