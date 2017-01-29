@@ -3,6 +3,9 @@ package com.example.brianofrim.juqe;
 import android.os.Bundle;
 import android.app.Activity;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 
@@ -23,6 +26,7 @@ public class SongPoolActivity extends Activity {
     private SongPoolAdapter poolAdapter;
     private Song nowPlaying;
     ImageView imageView;
+    int start = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,13 +38,13 @@ public class SongPoolActivity extends Activity {
         ValueEventListener nowPlayingListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                if(dataSnapshot.getValue() != null) {
+                if (dataSnapshot.getValue() != null) {
                     nowPlaying = dataSnapshot.getValue(Song.class);
                 }
 
                 imageView = (ImageView) findViewById(R.id.albumImage);
 
-                if(imageView != null && nowPlaying != null) {
+                if (imageView != null && nowPlaying != null) {
                     new ImageDownloaderTask(imageView).execute(nowPlaying.getAlbumArt());
                 }
             }
@@ -52,8 +56,26 @@ public class SongPoolActivity extends Activity {
         };
         VenueController.getDbRef().child("songLists").child(VenueController.getCurrVenue().getCode()).child("nowPlaying")
                 .addValueEventListener(nowPlayingListener);
-    }
 
+        ImageButton playButton = (ImageButton) findViewById(R.id.playButton);
+        playButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                if (start == 0) {
+                    start++;
+                    VenueController.nextTrack();
+                } else {
+                    playerController.playPauseToggle();
+                }
+            }
+        });
+
+        ImageButton skipButton = (ImageButton) findViewById(R.id.skipButton);
+        skipButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                VenueController.nextTrack();
+            }
+        });
+    }
 
     @Override
     protected void onStart() {
