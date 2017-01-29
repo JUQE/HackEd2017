@@ -43,7 +43,8 @@ public class SongListAdapter extends ArrayAdapter<Song> {
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
-                songList.get(position).incrementVotes();
+                //songList.get(position).incrementVotes();
+                UserController.upvoteSong(songList.get(position));
                 notifyDataSetChanged();
             }
             //RelativeLayout listItem = (RelativeLayout) v.getParent();
@@ -57,5 +58,17 @@ public class SongListAdapter extends ArrayAdapter<Song> {
         songArtist.setText(song.getArtist());
         return convertView;
 
+    }
+
+    public void update() {
+        notifyDataSetChanged();
+    }
+
+    public void removeByURI(Song song) {
+        for(Song s: songList) {
+            if(s.getURI().equals(song.getURI())) {
+                songList.remove(s);
+            }
+        }
     }
 }

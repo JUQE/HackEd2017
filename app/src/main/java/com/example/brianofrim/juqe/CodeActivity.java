@@ -24,6 +24,7 @@ public class CodeActivity extends Activity {
             public void onClick(View v) {
                 setResult(RESULT_OK);
                 String codeText = venueCode.getText().toString();
+                UserController.setCode(codeText);
                 Intent intent;
                 intent =  new Intent(CodeActivity.this, UserView.class);
                 intent.putExtra("code", codeText);
