@@ -147,7 +147,7 @@ public class DjActivity extends Activity implements
         songAdapter = new ResultsListAdapter(this, songSearchResultsArraylist);
         seachResultsList.setAdapter(songAdapter);
 
-        VenueController.nextTrack();
+        //VenueController.nextTrack();
     }
 
     @Override
@@ -196,7 +196,7 @@ public class DjActivity extends Activity implements
 //            default:
 //                break;
 //        }
-        if(playerEvent.name().equals("kSpPlaybackNotifyTrackDelivery")){
+        if(playerEvent.name().equals("kSpPlaybackNotifyTrackDelivered")){
             Log.d("MainActivity", "Track Changed");
             VenueController.nextTrack();
         }
@@ -215,7 +215,6 @@ public class DjActivity extends Activity implements
     @Override
     public void onLoggedIn() {
         Log.d("MainActivity", "User logged in");
-
         mPlayer.playUri(null, "spotify:track:36lLAemjMocqp4XYr4Umgn", 0, 0);
 
     }
