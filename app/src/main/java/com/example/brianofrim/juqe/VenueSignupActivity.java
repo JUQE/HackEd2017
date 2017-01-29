@@ -42,6 +42,12 @@ public class VenueSignupActivity extends Activity {
                     public void onDataChange(DataSnapshot snapshot) {
                         if(!snapshot.hasChild(venueCode)){
                             VenueController.createVenue(venueCode, venueName);
+                            if(VenueController.getCurrSongList().getSongPool() != null) {
+                                VenueController.getCurrSongList().getSongPool().clear();
+                            }
+                            if(VenueController.getURIList() != null) {
+                                VenueController.getURIList().clear();
+                            }
                             Intent intent = new Intent (VenueSignupActivity.this, DjActivity.class);
                             startActivity(intent);
                         }else{
