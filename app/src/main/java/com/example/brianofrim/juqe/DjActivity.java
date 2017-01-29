@@ -61,7 +61,7 @@ public class DjActivity extends Activity implements
 
     //UI elements
     private ListView seachResultsList;
-    private Spinner searchTypeSpinner;
+//    private Spinner searchTypeSpinner;
     private Button searchButton;
     private EditText searchText;
     private Button poolButton;
@@ -90,7 +90,7 @@ public class DjActivity extends Activity implements
       api =  new SpotifyApi();
 
         seachResultsList = (ListView) findViewById(R.id.searchResultsList);
-        searchTypeSpinner = (Spinner) findViewById(R.id.searchTypeSpinner);
+        //searchTypeSpinner = (Spinner) findViewById(R.id.searchTypeSpinner);
         searchButton = (Button) findViewById(R.id.searchButton);
         searchText = (EditText) findViewById(R.id.searchTextBox);
         poolButton = (Button) findViewById(R.id.goToPoolButton);
