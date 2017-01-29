@@ -147,7 +147,7 @@ public class DjActivity extends Activity implements
         songAdapter = new ResultsListAdapter(this, songSearchResultsArraylist);
         seachResultsList.setAdapter(songAdapter);
 
-        VenueController.nextTrack();
+        //VenueController.nextTrack();
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
@@ -214,7 +214,7 @@ public class DjActivity extends Activity implements
     @Override
     public void onLoggedIn() {
         Log.d("MainActivity", "User logged in");
-        mPlayer.playUri(null, "spotify:track:36lLAemjMocqp4XYr4Umgn", 0, 0);
+       // mPlayer.playUri(null, "spotify:track:36lLAemjMocqp4XYr4Umgn", 0, 0);
 
     }
 

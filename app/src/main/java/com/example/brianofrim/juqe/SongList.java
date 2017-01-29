@@ -47,7 +47,12 @@ public class SongList {
     }
 
     public void removeSong(Song s){
-        songPool.remove(s);
+        for(Song song: songPool){
+            if(s.getURI().equals(song.getURI())){
+                songPool.remove(song);
+                break;
+            }
+        }
     }
 
     public Song getOnDeck() {

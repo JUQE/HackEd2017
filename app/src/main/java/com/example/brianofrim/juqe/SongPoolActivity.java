@@ -21,7 +21,6 @@ import java.util.ArrayList;
 
 public class SongPoolActivity extends Activity {
 
-
     //UI elements
     private ListView songPoolLV;
     private SongPoolAdapter poolAdapter;
@@ -43,6 +42,7 @@ public class SongPoolActivity extends Activity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.getValue() != null) {
                     nowPlaying = dataSnapshot.getValue(Song.class);
+                    VenueController.removeSong(nowPlaying);
                 }
 
                 imageView = (ImageView) findViewById(R.id.albumImage);
@@ -52,6 +52,7 @@ public class SongPoolActivity extends Activity {
                     songName.setText(nowPlaying.getName());
                     songArtist.setText(nowPlaying.getArtist());
                 }
+
                 poolAdapter.notifyDataSetChanged();
             }
 
