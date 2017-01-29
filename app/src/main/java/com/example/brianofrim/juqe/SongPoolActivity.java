@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -33,9 +34,11 @@ public class SongPoolActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_song_pool2);
         songPoolLV = (ListView) findViewById(R.id.songPoolListView);
+        final TextView songName = (TextView) findViewById(R.id.songName);
+        final TextView songArtist = (TextView) findViewById(R.id.songArtist);
 
 
-        ValueEventListener nowPlayingListener = new ValueEventListener() {
+        final ValueEventListener nowPlayingListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.getValue() != null) {
@@ -46,6 +49,9 @@ public class SongPoolActivity extends Activity {
 
                 if (imageView != null && nowPlaying != null) {
                     new ImageDownloaderTask(imageView).execute(nowPlaying.getAlbumArt());
+                    songName.setText(nowPlaying.getName());
+                    songArtist.setText(nowPlaying.getArtist());
+
                 }
             }
 
