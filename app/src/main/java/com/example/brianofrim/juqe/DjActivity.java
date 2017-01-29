@@ -147,7 +147,7 @@ public class DjActivity extends Activity implements
         songAdapter = new ResultsListAdapter(this, songSearchResultsArraylist);
         seachResultsList.setAdapter(songAdapter);
 
-        //VenueController.nextTrack();
+        VenueController.nextTrack();
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent intent) {

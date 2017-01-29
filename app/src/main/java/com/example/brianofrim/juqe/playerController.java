@@ -36,7 +36,6 @@ public class playerController{
     }
 
 
-
     public static void PausePlayer(){
         playa.pause(mOperationCallback);
     }
