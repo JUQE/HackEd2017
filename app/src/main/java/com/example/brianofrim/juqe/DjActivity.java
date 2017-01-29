@@ -241,6 +241,7 @@ public class DjActivity extends Activity implements
                     Song s = new Song(t.name, t.artists.get(0).name, t.id, 0);
                     songAdapter.add(s);
                 }
+                songAdapter.notifyDataSetChanged();
 
             }
             @Override

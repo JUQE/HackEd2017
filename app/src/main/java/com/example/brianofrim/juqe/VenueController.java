@@ -4,6 +4,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
+
 /**
  * Created by brianofrim on 2017-01-28.
  */
@@ -14,6 +16,7 @@ public class VenueController {
 
     private static Venue currVenue;
     private static SongList songList;
+    private static ArrayList<String> uriList = new ArrayList<>();
 
     private static DatabaseReference getDbRef(){
         if(mDatabase == null){
@@ -57,5 +60,17 @@ public class VenueController {
     public static void removeSong(Song s){
         getDbRef().child("songLists").child(songList.getVenueName()).child("songPool").child(s.getHash()).removeValue();
         songList.removeSong(s);
+    }
+
+    public static ArrayList<String> getURIList() {
+        return uriList;
+    }
+
+    public static void addURI(String uri) {
+        uriList.add(uri);
+    }
+
+    public static void removeURI(String uri) {
+        uriList.remove(uri);
     }
 }

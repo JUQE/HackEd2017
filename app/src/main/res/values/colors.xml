@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="primary_colour">#ffffff</color>
-    <color name="tertiary_colour">#e35e69</color>
+    <color name="tertiary_colour">#68120f</color>
     <color name="secondary_colour">#c61e19</color>
     <color name="primary">#5c0066</color>
     <color name="primaryDark">#68120f</color>
@@ -12,7 +12,7 @@
     <color name="light_tertiary_colour">#ca535d</color>
     <color name="completed">#8E4199</color>
     <color name="paid">#62156D</color>
-    <color name="uncompleted">#CF9CD6</color>
+    <color name="uncompleted">#cf9cd6</color>
     <color name="colorAccent">#e2e1e1</color>
     <color name="fieldcolor">#FF666262</color>
     <color name="linkcolor">#158df1</color>

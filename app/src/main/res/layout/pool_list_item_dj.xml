@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_marginRight="10dp"
         android:layout_alignParentLeft="true"
-        android:text="Complete" />
+        android:text="Remove" />
 
     <TextView
         android:id="@+id/songName_dj_pool"

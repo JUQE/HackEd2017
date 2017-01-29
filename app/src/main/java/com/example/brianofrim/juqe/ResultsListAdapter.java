@@ -24,6 +24,7 @@ public class ResultsListAdapter extends ArrayAdapter<Song> {
 
     private Context context;
     private ArrayList<Song> songList = new ArrayList<>();
+    private ArrayList<String> keyList= new ArrayList<>();
 
 
     public ResultsListAdapter(Context context, ArrayList<Song> songList) {
@@ -39,15 +40,15 @@ public class ResultsListAdapter extends ArrayAdapter<Song> {
         TextView songName = (TextView) convertView.findViewById(R.id.songName);
         TextView songArtist = (TextView) convertView.findViewById(R.id.songArtist);
         final Button addToPoolButton = (Button) convertView.findViewById(R.id.add_to_pool);
+        setButtonColor(addToPoolButton, songList.get(position), false);
         addToPoolButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
                 VenueController.addSong(songList.get(position));
-                addToPoolButton.setEnabled(false);
-                addToPoolButton.getBackground().setColorFilter(ContextCompat.getColor(context, R.color.buttonPressed), PorterDuff.Mode.MULTIPLY);
-                //notifyDataSetChanged();
+                setButtonColor(addToPoolButton, songList.get(position), true);
+                notifyDataSetChanged();
             }
             //RelativeLayout listItem = (RelativeLayout) v.getParent();
             //listItem.setBackgroundColor(ContextCompat.getColor(context, R.color.
@@ -62,9 +63,14 @@ public class ResultsListAdapter extends ArrayAdapter<Song> {
 
     }
 
-    public void setButtonColor(ImageButton button, Song song) {
-        if(UserController.getKeyList().contains(song.getHash())) {
+    public void setButtonColor(Button button, Song song, Boolean pressed) {
+        if(VenueController.getURIList().contains(song.getURI())) {
             button.getBackground().setColorFilter(ContextCompat.getColor(context, R.color.buttonPressed), PorterDuff.Mode.MULTIPLY);
+            button.setEnabled(false);
+        } else if(pressed){
+            button.getBackground().setColorFilter(ContextCompat.getColor(context, R.color.buttonPressed), PorterDuff.Mode.MULTIPLY);
+            button.setEnabled(false);
+            VenueController.addURI(song.getURI());
         } else {
             button.getBackground().setColorFilter(ContextCompat.getColor(context, R.color.tertiary_colour), PorterDuff.Mode.MULTIPLY);
         }
