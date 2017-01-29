@@ -27,6 +27,16 @@ public class playerController{
     }
 
 
+    public static void playPauseToggle(){
+        if (getPlayer().getPlaybackState() != null && getPlayer().getPlaybackState().isPlaying) {
+            PausePlayer();
+        }else{
+            ResumeTrack();
+        }
+    }
+
+
+
     public static void PausePlayer(){
         playa.pause(mOperationCallback);
     }
