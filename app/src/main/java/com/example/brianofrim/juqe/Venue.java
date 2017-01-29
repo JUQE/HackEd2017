@@ -13,6 +13,8 @@ public class Venue {
     private String code;
     private Song nowPlaying;
 
+
+
     public Venue (String name, String code) {
         this.songList = new ArrayList<Song>();
         this.name = name;
@@ -25,6 +27,10 @@ public class Venue {
 
     public List<Song> getSongList() {
         return songList;
+    }
+
+    public void setSongList(List<Song> songList) {
+        this.songList = songList;
     }
 
     public void setSongList(ArrayList<Song> songList) {
