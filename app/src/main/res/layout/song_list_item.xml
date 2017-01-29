@@ -10,7 +10,6 @@
         android:layout_height="wrap_content"
         android:src="@drawable/ic_action_name"
         android:id="@+id/upvote_button"
-        android:text="Complete"
         android:layout_alignParentLeft="true"
         />
 
