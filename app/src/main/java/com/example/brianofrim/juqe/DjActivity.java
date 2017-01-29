@@ -243,7 +243,7 @@ public class DjActivity extends Activity implements
                 List<Track> tracks = tracksPager.tracks.items;
                 songAdapter.clear();
                 for(Track t: tracks) {
-                    Song s = new Song(t.name, t.artists.get(0).name, t.id, 0);
+                    Song s = new Song(t.name, t.artists.get(0).name, t.id, 0, t.album.images.get(0).url);
                     songAdapter.add(s);
                 }
                 songAdapter.notifyDataSetChanged();

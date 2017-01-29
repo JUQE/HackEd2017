@@ -78,9 +78,9 @@ public class SongListAdapter extends ArrayAdapter<Song> {
 
     public void setButtonColor(ImageButton button, Song song) {
         if(UserController.getKeyList().contains(song.getHash())) {
-            button.getBackground().setColorFilter(ContextCompat.getColor(context, R.color.buttonPressed), PorterDuff.Mode.MULTIPLY);
-        } else {
             button.getBackground().setColorFilter(ContextCompat.getColor(context, R.color.tertiary_colour), PorterDuff.Mode.MULTIPLY);
+        } else {
+            button.getBackground().setColorFilter(ContextCompat.getColor(context, R.color.buttonPressed), PorterDuff.Mode.MULTIPLY);
         }
     }
 }

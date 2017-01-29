@@ -12,12 +12,20 @@
         android:layout_alignParentLeft="true"
         android:text="Add" />
 
+    <ImageView
+        android:id="@+id/thumbImage"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_toRightOf="@id/add_to_pool"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/placeholder" />
+
     <TextView
         android:id="@+id/songName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingLeft="8dp"
-        android:layout_toRightOf="@id/add_to_pool"
+        android:layout_toRightOf="@id/thumbImage"
         android:textSize="18sp"
         android:textStyle="bold" />
     <TextView
@@ -28,7 +36,7 @@
         android:textSize="18sp"
         android:textStyle="bold"
         android:layout_alignParentRight="true"
-        android:layout_toRightOf="@id/add_to_pool"
+        android:layout_toRightOf="@id/thumbImage"
         android:layout_below="@id/songName"/>rap
 
 </RelativeLayout>

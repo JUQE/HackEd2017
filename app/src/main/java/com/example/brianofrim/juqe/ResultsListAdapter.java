@@ -12,6 +12,7 @@ package com.example.brianofrim.juqe;
         import android.widget.ArrayAdapter;
         import android.widget.Button;
         import android.widget.ImageButton;
+        import android.widget.ImageView;
         import android.widget.TextView;
 
         import java.util.ArrayList;
@@ -37,6 +38,13 @@ public class ResultsListAdapter extends ArrayAdapter<Song> {
         if(convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.search_results_listview, parent, false);
         }
+
+        ImageView imageView = (ImageView) convertView.findViewById(R.id.thumbImage);
+
+        if(imageView != null) {
+            new ImageDownloaderTask(imageView).execute(songList.get(position).getAlbumArt());
+        }
+
         TextView songName = (TextView) convertView.findViewById(R.id.songName);
         TextView songArtist = (TextView) convertView.findViewById(R.id.songArtist);
         final Button addToPoolButton = (Button) convertView.findViewById(R.id.add_to_pool);
