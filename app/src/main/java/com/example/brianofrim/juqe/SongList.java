@@ -14,6 +14,8 @@ public class SongList {
 
     private String venueCode;
     private List<Song> songPool;
+    private Song nowPlaying;
+    private Song onDeck;
 
     SongList(){
     }
@@ -47,4 +49,22 @@ public class SongList {
     public void removeSong(Song s){
         songPool.remove(s);
     }
+
+    public Song getOnDeck() {
+        return onDeck;
+    }
+
+    public void setOnDeck(Song onDeck) {
+        this.onDeck = onDeck;
+    }
+
+    public Song getNowPlaying() {
+        return nowPlaying;
+    }
+
+    public void setNowPlaying(Song nowPlaying) {
+        this.nowPlaying = nowPlaying;
+    }
+
+
 }

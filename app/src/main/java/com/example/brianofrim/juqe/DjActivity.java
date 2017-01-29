@@ -146,6 +146,8 @@ public class DjActivity extends Activity implements
         super.onStart();
         songAdapter = new ResultsListAdapter(this, songSearchResultsArraylist);
         seachResultsList.setAdapter(songAdapter);
+
+        VenueController.nextTrack();
     }
 
     @Override
@@ -164,6 +166,7 @@ public class DjActivity extends Activity implements
                         mPlayer = spotifyPlayer;
                         mPlayer.addConnectionStateCallback(DjActivity.this);
                         mPlayer.addNotificationCallback(DjActivity.this);
+                        playerController.setPlayer(mPlayer);
                     }
 
                     @Override
@@ -178,7 +181,7 @@ public class DjActivity extends Activity implements
     @Override
     protected void onDestroy() {
         // VERY IMPORTANT! This must always be called or else you will leak resources
-        Spotify.destroyPlayer(this);
+        //Spotify.destroyPlayer(this);
         super.onDestroy();
     }
 
@@ -188,10 +191,14 @@ public class DjActivity extends Activity implements
     @Override
     public void onPlaybackEvent(PlayerEvent playerEvent) {
         Log.d("MainActivity", "Playback event received: " + playerEvent.name());
-        switch (playerEvent) {
-            // Handle event type as necessary
-            default:
-                break;
+//        switch (playerEvent) {
+//            // Handle event type as necessary
+//            default:
+//                break;
+//        }
+        if(playerEvent.name().equals("kSpPlaybackNotifyTrackDelivery")){
+            Log.d("MainActivity", "Track Changed");
+
         }
     }
 
@@ -209,7 +216,8 @@ public class DjActivity extends Activity implements
     public void onLoggedIn() {
         Log.d("MainActivity", "User logged in");
 
-        //mPlayer.playUri(null, "spotify:track:2TpxZ7JUBn3uw46aR7qd6V", 0, 0);
+        mPlayer.playUri(null, "spotify:track:2TpxZ7JUBn3uw46aR7qd6V", 0, 0);
+
     }
 
     @Override

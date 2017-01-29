@@ -1,5 +1,8 @@
 package com.example.brianofrim.juqe;
 
+import android.content.Intent;
+import android.util.Log;
+
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -72,6 +75,44 @@ public class VenueController {
         s.setHash(dbr.getKey());
         dbr.setValue(s);
         songList.addSong(s);
+    }
+
+    public static void nextTrack() {
+
+        //get all the current Tracks
+        getDbRef().child("songLists").child("lol2").child("songPool").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot postSnapshot: dataSnapshot.getChildren()) {
+                    // TODO: handle the post
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Getting Post failed, log a message
+                //Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
+                // ...
+            }
+        });
+
+//                .addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot snapshot) {
+//                Log.d("MainACtivity", "songs" + snapshot.toString());
+//                GenericTypeIndicator<List<String>> t = new GenericTypeIndicator<List<String>>() {};
+//
+//                List<String> yourStringArray = dataSnapshot.getValue(t);
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//                // Getting Post failed, log a message
+//                //displayErrorMessage("Connection error try again");
+//                Log.d("MainACtivity", "databaseError" + databaseError.toString());
+//            }
+//        });
     }
 
     public static void removeSong(Song s){
