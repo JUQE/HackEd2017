@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.google.firebase.database.DatabaseReference;
         import com.google.firebase.database.FirebaseDatabase;
@@ -65,6 +66,8 @@ public class DjActivity extends Activity implements
     private EditText searchText;
     private Button poolButton;
 
+    private TextView venueNameTextBox;
+
     private ResultsListAdapter songAdapter;
 
     private ArrayList<Song> songSearchResultsArraylist;
@@ -91,6 +94,8 @@ public class DjActivity extends Activity implements
         searchButton = (Button) findViewById(R.id.searchButton);
         searchText = (EditText) findViewById(R.id.searchTextBox);
         poolButton = (Button) findViewById(R.id.goToPoolButton);
+        venueNameTextBox = (TextView) findViewById(R.id.BoothTextView);
+        venueNameTextBox.setText(VenueController.getCurrVenue().getName());
 
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override

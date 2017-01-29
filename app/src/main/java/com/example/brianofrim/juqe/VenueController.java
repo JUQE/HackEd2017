@@ -1,8 +1,11 @@
 package com.example.brianofrim.juqe;
 
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 /**
  * Created by brianofrim on 2017-01-28.
@@ -15,7 +18,7 @@ public class VenueController {
     private static Venue currVenue;
     private static SongList songList;
 
-    private static DatabaseReference getDbRef(){
+    public static DatabaseReference getDbRef(){
         if(mDatabase == null){
             mDatabase = FirebaseDatabase.getInstance().getReference();
         }
@@ -23,9 +26,26 @@ public class VenueController {
     }
 
 
-    public static boolean venueCodeExists(String venueCode){
-        return true;
-    }
+//    public static boolean venueCodeExists(String venueCode){
+//
+//        final String  venCode = venueCode;
+//        final Boolean exists;
+//        getDbRef().child("venues").addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot snapshot) {
+//                exists = snapshot.hasChild(venCode);
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//                // Getting Post failed, log a message
+//
+//            }
+//        });
+//
+//
+//        return true;
+//    }
 
     public static void createVenue(String venueCode,String venueName){
         Venue newVenue = new Venue(venueName, venueCode);
