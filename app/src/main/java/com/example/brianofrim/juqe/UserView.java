@@ -7,7 +7,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.ChildEventListener;
@@ -15,6 +17,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import org.w3c.dom.Comment;
 
@@ -28,6 +31,8 @@ public class UserView extends Activity {
     private ListView songList;
     private String code;
     private DatabaseReference mDatabase;
+    private ImageView imageView;
+    private Song nowPlaying;
 
 
     @Override
@@ -44,11 +49,38 @@ public class UserView extends Activity {
         }
 
         songList = (ListView) findViewById(R.id.allSongs);
+        final TextView songName = (TextView) findViewById(R.id.songName);
+        final TextView songArtist = (TextView) findViewById(R.id.songArtist);
         songList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
             }
         });
+
+
+        final ValueEventListener nowPlayingListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.getValue() != null) {
+                    nowPlaying = dataSnapshot.getValue(Song.class);
+                }
+
+                imageView = (ImageView) findViewById(R.id.albumImage);
+
+                if (imageView != null && nowPlaying != null) {
+                    new ImageDownloaderTask(imageView).execute(nowPlaying.getAlbumArt());
+                    songName.setText(nowPlaying.getName());
+                    songArtist.setText(nowPlaying.getArtist());
+                }
+                songAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        };
+        VenueController.getDbRef().child("songLists").child(VenueController.getCurrVenue().getCode()).child("nowPlaying")
+                .addValueEventListener(nowPlayingListener);
 
         ChildEventListener childEventListener = new ChildEventListener() {
             @Override

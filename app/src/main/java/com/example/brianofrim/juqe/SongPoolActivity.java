@@ -51,13 +51,12 @@ public class SongPoolActivity extends Activity {
                     new ImageDownloaderTask(imageView).execute(nowPlaying.getAlbumArt());
                     songName.setText(nowPlaying.getName());
                     songArtist.setText(nowPlaying.getArtist());
-
                 }
+                poolAdapter.notifyDataSetChanged();
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
             }
         };
         VenueController.getDbRef().child("songLists").child(VenueController.getCurrVenue().getCode()).child("nowPlaying")
