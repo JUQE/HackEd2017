@@ -10,13 +10,16 @@ public class Song implements Comparable<Song>{
     private String artist;
     private String URI;
     private String hash;
+    private String albumArt;
     private int votes;
 
-    public Song (String name, String artist, String URI, int votes) {
+
+    public Song (String name, String artist, String URI, int votes, String albumArt) {
         this.name = name;
         this.artist = artist;
         this.URI = URI;
         this.votes = votes;
+        this.albumArt = albumArt;
     }
 
     public Song() {}
@@ -73,5 +76,13 @@ public class Song implements Comparable<Song>{
     @Override
     public String toString() {
         return "Song = " + this.getName() + "Artist = " + this.getArtist();
+    }
+
+    public String getAlbumArt() {
+        return albumArt;
+    }
+
+    public void setAlbumArt(String albumArt) {
+        this.albumArt = albumArt;
     }
 }

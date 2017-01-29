@@ -5,6 +5,7 @@ package com.example.brianofrim.juqe;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -44,10 +45,10 @@ public class SongPoolAdapter extends ArrayAdapter<Song> {
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
+                VenueController.removeURI(songList.get(position).getURI());
                 VenueController.removeSong(songList.get(position));
                 removeFromPoolButton.setEnabled(false);
-                removeFromPoolButton.setBackgroundColor(ContextCompat.getColor(context, R.color.buttonPressed));
-                //notifyDataSetChanged();
+                notifyDataSetChanged();
             }
             //RelativeLayout listItem = (RelativeLayout) v.getParent();
             //listItem.setBackgroundColor(ContextCompat.getColor(context, R.color.
