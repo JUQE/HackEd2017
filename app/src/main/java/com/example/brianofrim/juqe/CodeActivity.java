@@ -61,12 +61,8 @@ public class CodeActivity extends Activity {
                         displayErrorMessage("Connection error try again");
                     }
                 });
-
-
             }
         });
-
-
     }
 
     public void displayErrorMessage(String errorMessage){
