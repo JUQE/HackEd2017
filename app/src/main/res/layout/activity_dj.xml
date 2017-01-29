@@ -21,22 +21,22 @@
         android:textAlignment="textStart"
         android:layout_centerHorizontal="true" />
 
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:id="@+id/searchTypeSpinner"
-        android:entries="@array/search_type_array"
-        android:layout_below="@+id/searchTextBox"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="18dp" />
+    <!--<Spinner-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="18dp"-->
+        <!--android:id="@+id/searchTypeSpinner"-->
+        <!--android:entries="@array/search_type_array"-->
+        <!--android:layout_below="@+id/searchTextBox"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:layout_marginStart="18dp" />-->
 
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/searchTypeSpinner"
+        android:layout_below="@+id/BoothTextView"
         android:layout_above="@+id/goToPoolButton"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="60dp"
         android:id="@+id/searchResultsList"
         />
 
@@ -64,7 +64,6 @@
         android:id="@+id/searchTextBox"
         android:layout_marginTop="17dp"
         android:layout_below="@+id/BoothTextView"
-        android:layout_alignStart="@+id/searchTypeSpinner"
         android:hint="Search"
         android:textColorHint="@color/black"/>
 
