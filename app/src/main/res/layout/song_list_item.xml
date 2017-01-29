@@ -32,7 +32,6 @@
         android:layout_alignParentEnd="true"
         android:textColor="@color/black"
         android:textSize="18sp"
-        android:textStyle="bold"
         android:layout_below="@id/songName"
         android:layout_toRightOf="@id/upvote_button"
         />

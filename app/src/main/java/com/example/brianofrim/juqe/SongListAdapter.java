@@ -13,6 +13,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * Created by jferris on 28/01/17.
@@ -69,9 +70,13 @@ public class SongListAdapter extends ArrayAdapter<Song> {
     }
 
     public void removeByURI(Song song) {
-        for(Song s: songList) {
+        Iterator<Song> iter = songList.iterator();
+        Song s;
+        while(iter.hasNext()) {
+            s = iter.next();
             if(s.getURI().equals(song.getURI())) {
                 songList.remove(s);
+                break;
             }
         }
     }

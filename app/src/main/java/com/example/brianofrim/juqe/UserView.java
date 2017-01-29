@@ -79,7 +79,7 @@ public class UserView extends Activity {
             public void onCancelled(DatabaseError databaseError) {
             }
         };
-        VenueController.getDbRef().child("songLists").child(VenueController.getCurrVenue().getCode()).child("nowPlaying")
+        VenueController.getDbRef().child("songLists").child(code).child("nowPlaying")
                 .addValueEventListener(nowPlayingListener);
 
         ChildEventListener childEventListener = new ChildEventListener() {
