@@ -51,11 +51,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Search"
         android:ems="10"
         android:id="@+id/searchTextBox"
         android:layout_marginTop="17dp"
         android:layout_below="@+id/BoothTextView"
-        android:layout_alignStart="@+id/searchTypeSpinner" />
+        android:layout_alignStart="@+id/searchTypeSpinner"
+        android:hint="Search"
+        android:textColorHint="@color/black"/>
 
 </RelativeLayout>

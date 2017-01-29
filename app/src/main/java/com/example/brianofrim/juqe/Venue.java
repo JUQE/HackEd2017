@@ -20,6 +20,9 @@ public class Venue {
 
     }
 
+    public Venue () {
+    }
+
     public List<Song> getSongList() {
         return songList;
     }

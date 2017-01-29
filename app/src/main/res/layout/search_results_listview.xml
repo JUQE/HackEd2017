@@ -5,34 +5,34 @@
     android:descendantFocusability="blocksDescendants">
 
 
-    <TextView
-        android:id="@+id/songName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_toLeftOf="@id/songArtist"
-        android:paddingLeft="8dp"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+
 
     <TextView
         android:id="@+id/songArtist"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
         android:paddingLeft="8dp"
         android:textSize="18sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_alignParentRight="true"/>
+
+
 
     <Button
         android:id="@+id/add_to_pool"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_toLeftOf="@id/songName"
         android:layout_marginRight="10dp"
+        android:layout_alignParentLeft="true"
         android:text="Complete" />
+
+    <TextView
+        android:id="@+id/songName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="8dp"
+        android:layout_toRightOf="@id/add_to_pool"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
 </RelativeLayout>
