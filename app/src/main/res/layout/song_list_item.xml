@@ -9,32 +9,31 @@
         android:id="@+id/songName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
         android:layout_toLeftOf="@id/songArtist"
         android:paddingLeft="8dp"
         android:textColor="@color/black"
         android:textSize="18sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        />
 
     <TextView
         android:id="@+id/songArtist"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
         android:paddingLeft="8dp"
+        android:layout_alignParentEnd="true"
         android:textColor="@color/black"
         android:textSize="18sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        />
 
-    <Button
-        android:id="@+id/upvote_button"
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_toLeftOf="@id/songName"
-        android:layout_marginRight="10dp"
-        android:text="Complete" />
+        android:src="@drawable/ic_action_name"
+        android:id="@+id/upvote_button"
+        android:text="Complete"
+        android:layout_alignParentLeft="true"
+        />
 
 </RelativeLayout>
