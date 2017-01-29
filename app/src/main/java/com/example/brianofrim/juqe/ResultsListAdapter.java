@@ -45,7 +45,7 @@ public class ResultsListAdapter extends ArrayAdapter<Song> {
                 VenueController.addSong(songList.get(position));
                 addToPoolButton.setEnabled(false);
                 addToPoolButton.setBackgroundColor(ContextCompat.getColor(context, R.color.buttonPressed));
-                notifyDataSetChanged();
+                //notifyDataSetChanged();
             }
             //RelativeLayout listItem = (RelativeLayout) v.getParent();
             //listItem.setBackgroundColor(ContextCompat.getColor(context, R.color.

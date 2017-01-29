@@ -7,14 +7,7 @@
 
 
 
-    <TextView
-        android:id="@+id/songArtist"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingLeft="8dp"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_alignParentRight="true"/>
+
 
 
 
@@ -34,5 +27,15 @@
         android:layout_toRightOf="@id/add_to_pool"
         android:textSize="18sp"
         android:textStyle="bold" />
+    <TextView
+        android:id="@+id/songArtist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="8dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@id/add_to_pool"
+        android:layout_below="@id/songName"/>rap
 
 </RelativeLayout>

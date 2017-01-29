@@ -33,19 +33,27 @@
 
     <ListView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/searchTypeSpinner"
         android:layout_marginTop="40dp"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/searchResultsList"/>
+        android:id="@+id/searchResultsList"
+        />
 
     <Button
-        android:text="Button"
+        android:text="Search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/searchTextBox"
         android:layout_alignParentEnd="true"
         android:id="@+id/searchButton" />
+
+    <Button
+        android:text="View pool"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/searchResultsList"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/goToPoolButton" />
 
     <EditText
         android:layout_width="wrap_content"

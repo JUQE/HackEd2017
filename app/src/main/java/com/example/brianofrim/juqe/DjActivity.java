@@ -7,6 +7,9 @@ import android.app.Activity;
         import android.os.Bundle;
 import android.support.v7.util.SortedList;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -60,6 +63,7 @@ public class DjActivity extends Activity implements
     private Spinner searchTypeSpinner;
     private Button searchButton;
     private EditText searchText;
+    private Button poolButton;
 
     private ResultsListAdapter songAdapter;
 
@@ -86,6 +90,7 @@ public class DjActivity extends Activity implements
         searchTypeSpinner = (Spinner) findViewById(R.id.searchTypeSpinner);
         searchButton = (Button) findViewById(R.id.searchButton);
         searchText = (EditText) findViewById(R.id.searchTextBox);
+        poolButton = (Button) findViewById(R.id.goToPoolButton);
 
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,13 +100,40 @@ public class DjActivity extends Activity implements
             }
         });
 
+        poolButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gotToSongPool();
+
+            }
+        });
+
         songSearchResultsArraylist = new ArrayList<Song>();
 
         //test <code>
-        VenueController.createVenue("testVen2","Cool place");
+        //VenueController.createVenue("testVen2","Cool place");
         //VenueController.addSong( new Song("some song", "lol", "sagrgeagerg", 0));
 
     }
+
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//
+//        MenuInflater inflater = getMenuInflater();
+//        inflater.inflate(R.menu.dj_menu, menu);
+//        return true;
+//    }
+//
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//
+//        //respond to menu item selection
+//        if(item.getItemId() == R.id.pool_menu_item){
+//            Intent intent = new Intent(this, SongPoolActivity.class);
+//            startActivity(intent);
+//        }
+//        return true;
+//    }
 
     @Override
     protected void onStart() {
@@ -227,6 +259,11 @@ public class DjActivity extends Activity implements
 //            public void failure(RetrofitError error) {
 //                Log.d("Album failure", error.toString());
 //            }
-//        });
+    }
+
+    public void gotToSongPool(){
+        Intent intent = new Intent(this, SongPoolActivity.class);
+        startActivity(intent);
+
     }
 }

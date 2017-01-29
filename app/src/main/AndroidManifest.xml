@@ -18,7 +18,10 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".UserView" />
         <activity android:name=".CodeActivity" />
-        <activity android:name=".VenueSignupActivity"></activity>
+        <activity android:name=".VenueSignupActivity" />
+        <activity
+            android:name=".SongPoolActivity"
+            android:label="@string/title_activity_song_pool"></activity>
     </application>
 
 </manifest>
