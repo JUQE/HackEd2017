@@ -35,8 +35,8 @@ public class UserController {
 
     }
 
-    public static void setCode(String code) {
-
+    public static void setCode(String code1) {
+        code = code1;
     }
 
 }

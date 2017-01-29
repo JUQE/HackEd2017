@@ -59,6 +59,7 @@ public class UserView extends Activity {
                 //song.setHash(dataSnapshot.getKey());
                 songAdapter.add(song);
                 Collections.sort(songArray);
+                songAdapter.update();
                 // ...
             }
 
@@ -74,6 +75,7 @@ public class UserView extends Activity {
                     }
                 }
                 Collections.sort(songArray);
+                songAdapter.update();
                 // ...
             }
 
@@ -84,8 +86,9 @@ public class UserView extends Activity {
                 // comment and if so remove it.
                 Song song = dataSnapshot.getValue(Song.class);
                 songAdapter.removeByURI(song);
-                songAdapter.update();
                 Collections.sort(songArray);
+                songAdapter.update();
+
                 // ...
             }
 
