@@ -42,4 +42,28 @@
         android:layout_alignParentRight="true"
         android:layout_below="@id/playButton"
         />
+
+    <TextView
+        android:id="@+id/songName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/albumImage"
+        android:paddingLeft="8dp"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:id="@+id/songArtist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="8dp"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:layout_below="@id/songName"
+        android:layout_toRightOf="@id/albumImage"
+        />
+
+
 </RelativeLayout>
