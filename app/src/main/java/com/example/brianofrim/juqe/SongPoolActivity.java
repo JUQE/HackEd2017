@@ -37,9 +37,10 @@ public class SongPoolActivity extends Activity {
                 if(dataSnapshot.getValue() != null) {
                     nowPlaying = dataSnapshot.getValue(Song.class);
                 }
+
                 imageView = (ImageView) findViewById(R.id.albumImage);
 
-                if(imageView != null) {
+                if(imageView != null && nowPlaying != null) {
                     new ImageDownloaderTask(imageView).execute(nowPlaying.getAlbumArt());
                 }
             }
