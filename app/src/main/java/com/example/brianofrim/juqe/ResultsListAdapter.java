@@ -39,11 +39,11 @@ public class ResultsListAdapter extends ArrayAdapter<Song> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.search_results_listview, parent, false);
         }
 
-        ImageView imageView = (ImageView) convertView.findViewById(R.id.thumbImage);
-
-        if(imageView != null) {
-            new ImageDownloaderTask(imageView).execute(songList.get(position).getAlbumArt());
-        }
+//        ImageView imageView = (ImageView) convertView.findViewById(R.id.thumbImage);
+//
+//        if(imageView != null) {
+//            new ImageDownloaderTask(imageView).execute(songList.get(position).getAlbumArt());
+//        }
 
         TextView songName = (TextView) convertView.findViewById(R.id.songName);
         TextView songArtist = (TextView) convertView.findViewById(R.id.songArtist);
