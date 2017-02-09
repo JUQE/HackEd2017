@@ -2,6 +2,8 @@
 Welcome to JUQE
 Prepare to democratize the dance floor
 
+Demo:https://youtu.be/ezmoGdRGG1E
+
 For too long have dancers suffered under the tyranny of pretentious DJs and people who hog the aux chord
 
 JUQE allows everyone to vote on the songs that will be played in social enviornments such as parties, clubs and bars.
